@@ -7,40 +7,29 @@
     <title>PortFolio</title>
     <link rel="stylesheet" href="./style.css">
     <script src="https://kit.fontawesome.com/7e78b09256.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./jquery.flipster.min.css">
 </head>
 <body>
 
+    <div class="loading-screen">
+        <div class="loader"></div>
+        <p>BB</p>
+    </div>
+
     <nav>
-        <!-- <div class="navbar">
-            <div class="navbar-gauche">
-                <a class="bb">Ballestero Bastien</a>
-            </div>
-            <div class="navbar-droite"> -->
-                <!-- <a href="https://www.linkedin.com/in/bastien-ballestero-809a7b250/"><i class="fa-brands fa-linkedin linkedin"></i></a>
-                <a href="https://github.com/babastien"><i class="fa-brands fa-square-github github"></i></a> -->
-                <!-- <i class="fa-solid fa-bars burger"></i>
-            </div>
-        </div> -->
 
         <a class="bb">Ballestero Bastien</a>
         <i class="fa-solid fa-bars burger"></i>
         <i class="fa-solid fa-xmark cross none-important"></i>
 
-        <section class="menu">
+        <section id="menu">
             <div>
                 <a class="link" href="#home">BALLESTERO BASTIEN</a>
                 <a class="link" href="#about-me">ABOUT ME</a>
-                <!-- <a class="link" href="#about-me">MY SKILLS</a> -->
                 <a class="link" href="#portfolio">PORTFOLIO</a>
                 <a class="link" href="#contact">CONTACT</a>
             </div>
         </section>
         
-        <!-- <div class="social-media">
-            <a href="https://www.linkedin.com/in/bastien-ballestero-809a7b250/" target="_blank"><i class="fa-brands fa-linkedin linkedin"></i></a>
-            <a href="https://github.com/babastien"><i class="fa-brands fa-square-github github" target="_blank"></i></a>
-        </div> -->
     </nav>
 
     <section id="home" class="sections">
@@ -52,67 +41,71 @@
 
     <section id="about-me">
         <div class="about-left">
-            <div class="picture">
-                <!-- <p>Photo réalisée avec l'IA Lensa</p> -->
-            </div>
+            <div class="picture"></div>
         </div>
         <div class="about-right">
             <div class="about-me">
-                <h2>ABOUT ME</h2>
-                <p>Je m'appelle Bastien, j'ai 29 ans. Je suis un jeune Web Développeur passionné. Très impatient d'apprendre de nouvelles compétences, j'aime la création de site, réfléchir à de nouvelles fonctionnalités et résoudre des problèmes.</p>
-            </br>
-                <p>Actuellement en formation avec l'école Simplon, je recherche un stage en entreprise de 5 semaines non rémunéré à partir du mois de mars.</p>
-            </div>
-            <div class="my-skills">
-                <!-- <h2>MY SKILLS</h2> -->
-                <!-- <p>Front-end : HTML, CSS, JavaScript, jQuery, Bootstrap</p>
-                </br>
-                <p>Back-end : PHP, MySQL</p>
-                </br>
-                <p>Outils : Git, Figma</p> -->
-                <p style="text-decoration:underline">Langages</p>
-                </br>
-                <div class="langages">
-                    <div class="group">
-                        <div class="circle"><img src="./icons/html.png" alt=""></div>
-                        <p>HTML</p>
-                    </div>
-                    <div class="group">
-                        <div class="circle"><img src="./icons/css.png" alt=""></div>
-                        <p>CSS</p>
-                    </div>
-                    <div class="group">
-                        <div class="circle"><img src="./icons/js.png" alt=""></div>
-                        <p>JavaScript</p>
-                    </div>
-                    <div class="group">
-                        <div class="circle"><img src="./icons/php.png" alt=""></div>
-                        <p>PHP</p>
-                    </div>
-                    <div class="group">
-                        <div class="circle"><img src="./icons/mysql.png" alt=""></div>
-                        <p>MySQL</p>
-                    </div>
-                    <div class="group">
-                        <div class="circle"><img src="./icons/jquery.png" alt=""></div>
-                        <p>jQuery</p>
-                    </div>
+                <div class="presentation">
+                    <h2>ABOUT ME</h2>
+                    <p>Je m'appelle Bastien, j'ai 29 ans. Je suis un jeune Web Développeur passionné. Très impatient d'apprendre de nouvelles compétences, j'aime la création de site, réfléchir à de nouvelles fonctionnalités et résoudre des problèmes.</p>
+                    </br>
+                    <p>Actuellement en formation avec l'école Simplon, je recherche un stage en entreprise non rémunéré de 5 semaines pour début mars.</p>
                 </div>
-                </br>
-                <p style="text-decoration:underline">Outils</p>
-                </br>
-                <div class="tools">
-                    <div class="group">
-                        <div class="circle"><img src="./icons/git.png" alt=""></div>
-                        <p>Git</p>
+                <div class="my-skills">
+                    <!-- <h2>MY SKILLS</h2> -->
+                    <!-- <p>Front-end : HTML, CSS, JavaScript</p>
+                    </br>
+                    <p>Back-end : PHP, MySQL</p>
+                    </br>
+                    <p>Outils : Git, Figma, jQuery, Bootstrap</p> -->
+                    <p style="text-decoration:underline">Langages</p>
+                    </br>
+                    <div class="langages">
+                        <div class="group">
+                            <div class="circle"><img src="./icons/html.png" alt=""></div>
+                            <p>HTML</p>
+                        </div>
+                        <div class="group">
+                            <div class="circle"><img src="./icons/css.png" alt=""></div>
+                            <p>CSS</p>
+                        </div>
+                        <div class="group">
+                            <div class="circle"><img src="./icons/js.png" alt=""></div>
+                            <p>JavaScript</p>
+                        </div>
+                        <div class="group">
+                            <div class="circle"><img src="./icons/php.png" alt=""></div>
+                            <p>PHP</p>
+                        </div>
+                        <div class="group">
+                            <div class="circle"><img src="./icons/mysql.png" alt=""></div>
+                            <p>MySQL</p>
+                        </div>
                     </div>
-                    <div class="group">
-                        <div class="circle"><img src="./icons/figma.png" alt=""></div>
-                        <p>Figma</p>
-                    </div>
-                    <div class="group">
-                        <div class="circle"><img src="./icons/bootstrap.png" alt=""></div>
-                        <p>Bootstrap</p>
+                    </br>
+                    <p style="text-decoration:underline">Outils</p>
+                    </br>
+                    <div class="tools">
+                        <div class="group">
+                            <div class="circle"><img src="./icons/git.png" alt=""></div>
+                            <p>Git</p>
+                        </div>
+                        <div class="group">
+                            <div class="circle"><img src="./icons/figma.png" alt=""></div>
+                            <p>Figma</p>
+                        </div>
+                        <div class="group">
+                            <div class="circle"><img src="./icons/jquery.png" alt=""></div>
+                            <p>jQuery</p>
+                        </div>
+                        <div class="group">
+                            <div class="circle"><img src="./icons/bootstrap.png" alt=""></div>
+                            <p>Bootstrap</p>
+                        </div>
+                        <!-- <div class="group">
+                            <div class="circle"><img src="./icons/wordpress.png" alt=""></div>
+                            <p>WordPress</p>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -128,7 +121,7 @@
                 <div><a href="https://github.com/babastien/Oblivion-NewBeginning" target="_blank"><img width="350px" src="./Carousel/oblivion.png" alt=""></a></div>
                 <div><a href="https://github.com/babastien/BusinessCo" target="_blank"><img width="350px" src="./Carousel/business-co.png" alt=""></a></div>
                 <div><a href="https://github.com/babastien/Exercice-FormulaireJS" target="_blank"><img width="350px" src="./Carousel/forumulaire-js.png" alt=""></a></div>
-                <div><img width="350px" src="./Carousel/portfolio-test.png" alt=""></div>
+                <div><a href="https://github.com/babastien/Site-CV-Portfolio" target="_blank"><img width="350px" src="./Carousel/site-cv-portfolio.png" alt=""></a></div>
             </div>
         </div>
     </section>
@@ -137,10 +130,9 @@
             <div class="contact-left">
                 <div class="contact">
                     <h2>CONTACT</h2>
-                    <!-- <i class="fa-solid fa-square-envelope"></i> -->
                         <a href="mailto:ballestero.bastien@gmail.com"><i class="fa-solid fa-square-envelope"></i>ballestero.bastien@gmail.com</a>
-                        <a href="https://www.linkedin.com/in/bastien-ballestero-809a7b250/"><i class="fa-brands fa-linkedin linkedin"></i>https://www.linkedin.com/in/bastien-ballestero/</a>
-                        <a href="https://github.com/babastien"><i class="fa-brands fa-square-github github"></i>https://github.com/babastien</a>
+                        <a href="https://www.linkedin.com/in/bastien-ballestero-809a7b250/" target="_blank"><i class="fa-brands fa-linkedin linkedin"></i>www.linkedin.com/in/bastienballestero</a>
+                        <a href="https://github.com/babastien"><i class="fa-brands fa-square-github github" target="_blank"></i>https://github.com/babastien</a>
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d185112.17053697945!2d5.247849702943494!3d43.53616884286224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c98da304b91259%3A0x5cb953bec8b688a3!2sAix-en-Provence!5e0!3m2!1sfr!2sfr!4v1673876010042!5m2!1sfr!2sfr" width="600" height="450" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     <!-- <button>Download CV</button> -->
                     <!-- <div class="form">
@@ -159,54 +151,69 @@
             <div class="contact-right">
                 <div class="api">
                     <div class="apod"></div>
-                    <div class="explanation"></div>
+                    <div class="apod-title"></div>
                 </div>
             </div>
     </section>
-    
-    <script src="./app2.js"></script>
 
     <script>
         
-        // MENU BURGER
+        // LOADING SCREEN
+        function loadingOpacity() {
+            document.querySelector(".loading-screen").style.opacity = 0;
+        }
+        setTimeout(loadingOpacity, 1500);
+
+        function loadingDisplay() {
+            document.querySelector(".loading-screen").style.display = "none";
+            document.querySelector("body").style.overflow = "visible";
+        }
+        setTimeout(loadingDisplay, 2500);
+
+        // BURGER MENU
         let burger = document.querySelector(".burger");
-        let menu = document.querySelector(".menu");
+        let menu = document.querySelector("#menu");
         let cross = document.querySelector(".cross");
         let link = document.querySelectorAll(".link");
 
         burger.addEventListener("click", () => {
-            menu.style.top = 0 + "vh";
+            menu.style.top = 0;
             burger.style.display = "none";
             cross.classList.remove("none-important")
         })
 
         cross.addEventListener("click", () => {
-            menu.style.top = -150 + "vh";
+            menu.style.top = -1000 + "px";
             cross.classList.add("none-important")
             burger.style.display = "block";
         })
 
         for (let i = 0 ; i < link.length ; i++) {
             link[i].addEventListener("click", () => {
-            menu.style.top = -150 + "vh";
+            menu.style.top = -1000 + "px";
             cross.classList.add("none-important")
             burger.style.display = "block";
         })}
 
         // API NASA
         let apod = document.querySelector(".apod");
-        let explanation = document.querySelector(".explanation");
+        let apodTitle = document.querySelector(".apod-title");
 
         fetch("https://api.nasa.gov/planetary/apod?api_key=LFIIphvc0g9zoHiTF4bbmcuKW9ff3wXcM7znOCZm")
             .then(response => response.json())
             .then(data => nasaDatas(data)) 
 
-            function nasaDatas({hdurl, title}) {
-                apod.innerHTML = `<img src="${hdurl}">`
-                explanation.innerHTML = `
-                <p>NASA API : Astronomy Picture of the Day</p>
-                <p>Titre : ${title}</p>`
-            }
+        function nasaDatas({hdurl, title, explanation}) {
+            apod.innerHTML = `<img src="${hdurl}">`
+            apodTitle.innerHTML = `
+            <p>NASA API : Astronomy Picture of the Day</p>
+            <p>Titre : ${title}</p>`
+
+            // apod.addEventListener("mouseover", () => {
+            //     apod.innerHTML = `<img src="${hdurl}">` + `<p class="explanation">${explanation}</p>`
+            // })
+
+        }
 
     </script>
 

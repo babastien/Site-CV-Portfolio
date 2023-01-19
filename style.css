@@ -17,15 +17,61 @@ body {
     color: white;
     background: black;
     scroll-behavior: smooth;
+    overflow: hidden;
+}
+
+.loading-screen {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: black;
+    z-index: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid white;
+    border-radius: 50%;
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    margin: auto;
+    animation: spin 1.5s linear infinite;
+}
+
+.loading-screen p {
+    color: white;
+    font-family: 'League Gothic', sans-serif;
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
 }
 
 .navbar {
     width: 100%;
-    height: 50px;
+    height: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgb(0, 0, 0, 50%);
+    background: rgba(255, 0, 0, 0.5);
     filter: blur(100%);
     position: fixed;
 }
@@ -48,7 +94,6 @@ body {
 .navbar-droite a {
     color: white;
     font-size: 25px;
-    /* margin-right: 5px; */
 }
 
 .navbar-droite i {
@@ -75,57 +120,37 @@ body {
     display: none !important;
 }
 
-.menu {
+#menu {
     width: 100%;
     height: 100%;
     background: #1B1B1B;
     position: absolute;
     z-index: 2;
-    top: -150vh;
+    top: -1000px;
     transition: 0.5s;
     position: fixed;
 }
 
-.menu div {
+#menu div {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
 }
 
-.menu a {
+#menu a {
     font-family: 'League Gothic', sans-serif;
     text-decoration: none;
     color: white;
     font-size: 45px;
-    margin: 2.5%;
 }
-
-/* .social-media {
-    position: fixed;
-    top: 50%;
-    display: flex;
-    flex-direction: column;
-    font-size: 25px;
-    text-shadow: 1px 1px 1px black;
-}
-
-.social-media a {
-    color: white;
-}
-
-.linkedin:hover, .github:hover {
-    cursor: pointer;
-    transform: scale(1.25);
-    transition: 0.3s;
-    margin-left: 2px;
-} */
 
 #home {
-    width: 100%;
-    height: 600px;
+    width: 100vw;
+    height: 100vh;
+    min-height: 600px;
     overflow: overlay;
     display: flex;
     justify-content: center;
@@ -134,6 +159,7 @@ body {
     background-image: url("./background.webp");
     background-size: cover;
     background-position: center;
+    text-shadow: 1px 1px 1px black;
 }
 
 h1 {
@@ -141,6 +167,10 @@ h1 {
     font-family: 'League Gothic', sans-serif;
     margin: 0;
     line-height: 1;
+}
+
+#home h2 {
+    margin: 0;
 }
 
 h2 {
@@ -154,7 +184,6 @@ h2 {
     width: 100%;
     height: 550px;
     display: flex;
-    background: black;
 }
 
 .about-left {
@@ -176,32 +205,30 @@ h2 {
     justify-content: end;
 }
 
-/* .about-left p {
-    text-shadow: 1px 1px 1px black;
-    margin-left: 15px;
-} */
-
 .about-right {
     width: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    flex-direction: column;
 }
 
 .about-me {
     width: 85%;
-    margin-right: 15%
+    height: 90%;
+    margin-right: 15%;
+    border: 1px solid grey;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    background: black;
 }
 
-p {
+.about-me p {
     font-size: 20px;
-    margin: 0;
-}
-
-.my-skills {
-    width: 85%;
-    margin-right: 15%
+    margin: 0 5%;
+    text-align: justify;
 }
 
 .langages, .tools {
@@ -211,6 +238,7 @@ p {
 
 .my-skills p {
     text-align: center;
+    margin: 0;
 }
 
 .group p {
@@ -250,7 +278,6 @@ p {
     width: 100%;
     height: 100%;
     display: flex;
-    /* justify-content: space-around; */
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -282,24 +309,28 @@ p {
 }
 
 .contact {
-    width: 70%;
+    width: 85%;
+    margin-left: 15%;
     display: flex;
     flex-direction: column;
-}
-
-.contact i {
-    font-size: 30px;
-    color: white;
-    margin-right: 5px;
+    border: 1px solid grey;
+    border-radius: 20px;
+    background: black;
 }
 
 .contact a {
     font-size: 20px;
     text-decoration: none;
     color: white;
-    margin-bottom: 20px;
+    margin: 0 5% 20px 5%;
     display: flex;
     align-items: center;
+}
+
+.contact i {
+    font-size: 30px;
+    color: white;
+    margin-right: 5px;
 }
 
 button {
@@ -333,7 +364,8 @@ textarea {
 }
 
 iframe {
-    width: 100%;
+    width: 90%;
+    margin: 0 5% 20px 5%;
     height: 100%;
     border-radius: 20px;
     text-align: center;
@@ -352,7 +384,6 @@ iframe {
 
 .api img {
     width: 100%;
-    /* border-radius: 20px 20px 0 0; */
 }
 
 .api p {
@@ -360,9 +391,10 @@ iframe {
     text-align: center;
 }
 
-.explanation {
-    border: 1px solid white;
+.apod-title {
+    border: 1px solid grey;
     width: 100%;
+    background: black;
 }
 
 @media screen and (max-width: 1235px) {
@@ -380,21 +412,24 @@ iframe {
 @media screen and (max-width: 825px) {
     #about-me {
         flex-direction: column;
-        height: 950px;
+        height: 900px;
         width: 100%;
     }
     .about-left {
-        height: 40%;
+        height: 30%;
         width: 100%;
         border-radius: 0;
     }
     .about-right {
-        height: 60%;
+        height: 70%;
         width: 100%;
     }
     .about-me, .my-skills {
         width: 80%;
         margin-right: 0;
+    }
+    .circle {
+        margin: 0 10px 5px 10px;
     }
 
     #portfolio {
@@ -416,7 +451,7 @@ iframe {
         border-radius: 0;
     }
     .contact {
-        width: 70%;
+        width: 80%;
         margin-left: 0;
     }
     .api {
