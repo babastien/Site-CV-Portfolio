@@ -20,6 +20,8 @@ body {
     overflow: hidden;
 }
 
+/* LOADING SCREEN */
+
 .loading-screen {
     width: 100vw;
     height: 100vh;
@@ -65,16 +67,7 @@ body {
     }
 }
 
-.navbar {
-    width: 100%;
-    height: 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255, 0, 0, 0.5);
-    filter: blur(100%);
-    position: fixed;
-}
+/* NAVIGATION */
 
 .bb {
     font-family: 'League Gothic', sans-serif;
@@ -89,15 +82,6 @@ body {
     cursor: pointer;
     text-shadow: white 1px 0 10px;
     transition: 0.3s;
-}
-
-.navbar-droite a {
-    color: white;
-    font-size: 25px;
-}
-
-.navbar-droite i {
-    margin-right: 10px;
 }
 
 .burger {
@@ -147,6 +131,8 @@ body {
     font-size: 45px;
 }
 
+/* HOMEPAGE */
+
 #home {
     width: 100vw;
     height: 100vh;
@@ -179,6 +165,8 @@ h2 {
     margin: 0 0 30px 0;
     text-align: center;
 }
+
+/* ABOUT ME */
 
 #about-me {
     width: 100%;
@@ -261,6 +249,8 @@ h2 {
     height: 30px;
 }
 
+/* PORTFOLIO */
+
 #portfolio {
     width: 100%;
     height: 600px;
@@ -285,6 +275,7 @@ h2 {
 .carousel img {
     border-radius: 5px;
     margin: 10px;
+    width: 350px;
 }
 
 .carousel img:hover {
@@ -294,6 +285,8 @@ h2 {
     transition: 0.3s;
 
 }
+
+/* CONTACT */
 
 #contact {
     width: 100%;
@@ -310,6 +303,7 @@ h2 {
 
 .contact {
     width: 85%;
+    height: 90%;
     margin-left: 15%;
     display: flex;
     flex-direction: column;
@@ -318,19 +312,61 @@ h2 {
     background: black;
 }
 
+.links {
+    width: 80%;
+    margin: 0 10%;
+    margin-bottom: 10px;
+}
+
 .contact a {
     font-size: 20px;
     text-decoration: none;
     color: white;
-    margin: 0 5% 20px 5%;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
 }
 
 .contact i {
-    font-size: 30px;
+    font-size: 25px;
     color: white;
     margin-right: 5px;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    width: 80%;
+}
+
+label {
+    font-size: 20px;
+}
+
+input {
+    width: 100%;
+    height: 25px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    background: black;
+    color: white;
+    border: 2px solid white;
+}
+
+textarea {
+    width: 100%;
+    height: 75px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    background: black;
+    color: white;
+    border: 2px solid white;
 }
 
 button {
@@ -343,30 +379,15 @@ button {
     border: none;
 }
 
-form {
-    margin-top: 10px;
-}
-
-input {
-    width: 100%;
-    height: 25px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: none;
-}
-
-textarea {
-    width: 100%;
-    height: 75px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: none;
+button:hover {
+    transform: scale(1.05);
+    transition: 0.1s;
+    cursor: pointer;
 }
 
 iframe {
-    width: 90%;
-    margin: 0 5% 20px 5%;
-    height: 100%;
+    width: 60%;
+    height: 90%;
     border-radius: 20px;
     text-align: center;
 }
@@ -378,12 +399,17 @@ iframe {
     align-items: center;
 }
 
+/* API */
+
 .api {
     width: 400px;
 }
 
 .api img {
-    width: 100%;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
 }
 
 .api p {
@@ -397,31 +423,36 @@ iframe {
     background: black;
 }
 
+/* RESPONSIVE */
+
 @media screen and (max-width: 1235px) {
     #portfolio {
         height: 800px;
     }
 }
 
-@media screen and (max-width: 1000px) {
+/* @media screen and (max-width: 1000px) {
     .api {
         width: 350px;
     }
-}
+} */
 
 @media screen and (max-width: 825px) {
     #about-me {
         flex-direction: column;
-        height: 900px;
+        height: 850px;
         width: 100%;
     }
     .about-left {
-        height: 30%;
+        height: 35%;
         width: 100%;
         border-radius: 0;
     }
+    .picture {
+        width: 80%;
+    }
     .about-right {
-        height: 70%;
+        height: 65%;
         width: 100%;
     }
     .about-me, .my-skills {
@@ -442,11 +473,11 @@ iframe {
         width: 100%;
     }
     .contact-left {
-        height: 50%;
+        height: 65%;
         width: 100%;
     }
     .contact-right {
-        height: 50%;
+        height: 25%;
         width: 100%;
         border-radius: 0;
     }
@@ -454,7 +485,58 @@ iframe {
         width: 80%;
         margin-left: 0;
     }
-    .api {
+    /* .api {
         width: 300px;
+    } */
+    iframe {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .group p {
+        font-size: 13px;
+    }
+    .circle {
+        width: 35px;
+        height: 35px;
+    }
+    .circle img {
+        width: 25px;
+        height: 25px;
+    }
+    .contact a {
+        font-size: 16px;
+    }
+    .contact i {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #home h1, #home h2 {
+        width: 60%;
+        margin: 0 20%;
+    }
+    #about-me {
+        height: 900px;
+    }
+    .about-left {
+        height: 30%;
+    }
+    .about-right {
+        height: 70%;
+    }
+    #portfolio {
+        height: 1300px;
+    }
+    .carousel img {
+        width: 300px;
+    }
+    .contact {
+        height: 480px;
+    }
+    .contact a {
+        font-size: 13px;
     }
 }

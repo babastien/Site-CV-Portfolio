@@ -1,3 +1,22 @@
+<?php
+
+if(isset($_POST["mailForm"])) {
+
+    $name = htmlspecialchars($_POST["name"]);
+    $email = htmlspecialchars($_POST["email"]);
+    $message = $name.' ('.$email.') a envoyé un message via Contact : '.htmlspecialchars($_POST["message"]);
+
+    // $header = "MIME-Version: 1.0 From:'.$name.'<'.$email.'> Content-Type:text/html; charset='utf_8' Content-Transfer-Encoding: 8bit";
+    $header = 'MIME-Version: 1.0\r\n';
+    $header.= 'From: '.$name.' <'.$email.'>'.'\n';
+    $header.= 'Content-Type: text/html; charset="utf_8"'.'\n';
+    $header.= 'Content-Transfer-Encoding: 8bit';
+
+    mail('ballestero.bastien@gmail.com', "Message de $name via Contact", $message, $header);   
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,12 +135,12 @@
         <div class="portfolio">
             <h2>PORTFOLIO</h2>
             <div class="carousel">
-                <div><a href="https://github.com/babastien/Exercice-FlexBeach" target="_blank"><img width="350px" src="./Carousel/flex-beach.png" alt=""></a></div>
-                <div><a href="https://github.com/babastien/Industrious" target="_blank"><img width="350px" src="./Carousel/industrious.png" alt=""></a></div>
-                <div><a href="https://github.com/babastien/Oblivion-NewBeginning" target="_blank"><img width="350px" src="./Carousel/oblivion.png" alt=""></a></div>
-                <div><a href="https://github.com/babastien/BusinessCo" target="_blank"><img width="350px" src="./Carousel/business-co.png" alt=""></a></div>
-                <div><a href="https://github.com/babastien/Exercice-FormulaireJS" target="_blank"><img width="350px" src="./Carousel/forumulaire-js.png" alt=""></a></div>
-                <div><a href="https://github.com/babastien/Site-CV-Portfolio" target="_blank"><img width="350px" src="./Carousel/site-cv-portfolio.png" alt=""></a></div>
+                <div><a href="https://github.com/babastien/Exercice-FlexBeach" target="_blank"><img src="./Carousel/flex-beach.png" alt=""></a></div>
+                <div><a href="https://github.com/babastien/Industrious" target="_blank"><img src="./Carousel/industrious.png" alt=""></a></div>
+                <div><a href="https://github.com/babastien/Oblivion-NewBeginning" target="_blank"><img src="./Carousel/oblivion.png" alt=""></a></div>
+                <div><a href="https://github.com/babastien/BusinessCo" target="_blank"><img src="./Carousel/business-co.png" alt=""></a></div>
+                <div><a href="https://github.com/babastien/Exercice-FormulaireJS" target="_blank"><img src="./Carousel/forumulaire-js.png" alt=""></a></div>
+                <div><a href="https://babastien.github.io/Site-CV-Portfolio/" target="_blank"><img src="./Carousel/site-cv-portfolio.png" alt=""></a></div>
             </div>
         </div>
     </section>
@@ -130,29 +149,35 @@
             <div class="contact-left">
                 <div class="contact">
                     <h2>CONTACT</h2>
+                    <div class="links">
                         <a href="mailto:ballestero.bastien@gmail.com"><i class="fa-solid fa-square-envelope"></i>ballestero.bastien@gmail.com</a>
                         <a href="https://www.linkedin.com/in/bastien-ballestero-809a7b250/" target="_blank"><i class="fa-brands fa-linkedin linkedin"></i>www.linkedin.com/in/bastienballestero</a>
                         <a href="https://github.com/babastien"><i class="fa-brands fa-square-github github" target="_blank"></i>https://github.com/babastien</a>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d185112.17053697945!2d5.247849702943494!3d43.53616884286224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c98da304b91259%3A0x5cb953bec8b688a3!2sAix-en-Provence!5e0!3m2!1sfr!2sfr!4v1673876010042!5m2!1sfr!2sfr" width="600" height="450" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d185112.17053697945!2d5.247849702943494!3d43.53616884286224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c98da304b91259%3A0x5cb953bec8b688a3!2sAix-en-Provence!5e0!3m2!1sfr!2sfr!4v1673876010042!5m2!1sfr!2sfr" width="600" height="450" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
                     <!-- <button>Download CV</button> -->
-                    <!-- <div class="form">
-                        <form>
-                            <p>NAME</p>
-                            <input type="text">
-                            <p>EMAIL</p>
-                            <input type="text">
-                            <p>MESSAGE</p>
-                            <textarea type="text"></textarea>
-                            <button type="submit">Submit</button>
+                    <div class="form">
+                        <form action="" method="post">
+                            <label for="name">NOM</label>
+                            <input type="text" id="name" name="name">
+
+                            <label for="email">EMAIL</label>
+                            <input type="email" id="email" name="email">
+
+                            <label for="message">MESSAGE</label>
+                            <textarea type="text" id="message" name="message"></textarea>
+
+                            <button type="submit" name="mailForm">Envoyer</button>
                         </form>
-                    </div> -->
+                    </div>
                 </div>
             </div>
             <div class="contact-right">
-                <div class="api">
+                <!-- <div class="api">
                     <div class="apod"></div>
                     <div class="apod-title"></div>
-                </div>
+                </div> -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d185112.17053697945!2d5.247849702943494!3d43.53616884286224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c98da304b91259%3A0x5cb953bec8b688a3!2sAix-en-Provence!5e0!3m2!1sfr!2sfr!4v1673876010042!5m2!1sfr!2sfr" width="600" height="450" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
     </section>
 
