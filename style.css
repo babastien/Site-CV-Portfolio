@@ -78,7 +78,7 @@ body {
     text-shadow: 1px 1px 1px black;
 }
 
-.bb:hover, .burger:hover, .cross:hover {
+.bb:hover, .burger:hover, .cross:hover, a:hover {
     cursor: pointer;
     text-shadow: white 1px 0 10px;
     transition: 0.3s;

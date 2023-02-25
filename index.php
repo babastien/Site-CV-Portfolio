@@ -1,5 +1,14 @@
 <?php
 
+session_start();
+
+$flash_message = null;
+
+if(array_key_exists('flash', $_SESSION) && $_SESSION['flash']) {
+    $flash_message = $_SESSION['flash'];
+    $_SESSION['flash'] = null;
+}
+
 if(isset($_POST["mailForm"])) {
 
     $name = htmlspecialchars($_POST["name"]);
@@ -13,6 +22,8 @@ if(isset($_POST["mailForm"])) {
     $header.= 'Content-Transfer-Encoding: 8bit';
 
     mail('ballestero.bastien@gmail.com', "Message de $name via Contact", $message, $header);   
+    $_SESSION['flash'] = "Message envoyé";
+    header('Location: index.php');
 }
 
 ?>
@@ -24,7 +35,7 @@ if(isset($_POST["mailForm"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PortFolio</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/7e78b09256.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -32,10 +43,12 @@ if(isset($_POST["mailForm"])) {
     <div class="loading-screen">
         <div class="loader"></div>
         <p>BB</p>
+        <?php if(isset($flash_message)): ?>
+            <p class="message-sent" style="width: 150px; top: 100px;"><?= $flash_message ?></p>
+        <?php endif; ?>
     </div>
 
     <nav>
-
         <a class="bb">Ballestero Bastien</a>
         <i class="fa-solid fa-bars burger"></i>
         <i class="fa-solid fa-xmark cross none-important"></i>
@@ -47,8 +60,7 @@ if(isset($_POST["mailForm"])) {
                 <a class="link" href="#portfolio">PORTFOLIO</a>
                 <a class="link" href="#contact">CONTACT</a>
             </div>
-        </section>
-        
+        </section>    
     </nav>
 
     <section id="home" class="sections">
@@ -71,12 +83,6 @@ if(isset($_POST["mailForm"])) {
                     <p>Actuellement en formation avec l'école Simplon, je recherche un stage en entreprise non rémunéré de 5 semaines pour début mars.</p>
                 </div>
                 <div class="my-skills">
-                    <!-- <h2>MY SKILLS</h2> -->
-                    <!-- <p>Front-end : HTML, CSS, JavaScript</p>
-                    </br>
-                    <p>Back-end : PHP, MySQL</p>
-                    </br>
-                    <p>Outils : Git, Figma, jQuery, Bootstrap</p> -->
                     <p style="text-decoration:underline">Langages</p>
                     </br>
                     <div class="langages">
@@ -181,66 +187,7 @@ if(isset($_POST["mailForm"])) {
             </div>
     </section>
 
-    <script>
-        
-        // LOADING SCREEN
-        function loadingOpacity() {
-            document.querySelector(".loading-screen").style.opacity = 0;
-        }
-        setTimeout(loadingOpacity, 1500);
-
-        function loadingDisplay() {
-            document.querySelector(".loading-screen").style.display = "none";
-            document.querySelector("body").style.overflow = "visible";
-        }
-        setTimeout(loadingDisplay, 2500);
-
-        // BURGER MENU
-        let burger = document.querySelector(".burger");
-        let menu = document.querySelector("#menu");
-        let cross = document.querySelector(".cross");
-        let link = document.querySelectorAll(".link");
-
-        burger.addEventListener("click", () => {
-            menu.style.top = 0;
-            burger.style.display = "none";
-            cross.classList.remove("none-important")
-        })
-
-        cross.addEventListener("click", () => {
-            menu.style.top = -1000 + "px";
-            cross.classList.add("none-important")
-            burger.style.display = "block";
-        })
-
-        for (let i = 0 ; i < link.length ; i++) {
-            link[i].addEventListener("click", () => {
-            menu.style.top = -1000 + "px";
-            cross.classList.add("none-important")
-            burger.style.display = "block";
-        })}
-
-        // API NASA
-        let apod = document.querySelector(".apod");
-        let apodTitle = document.querySelector(".apod-title");
-
-        fetch("https://api.nasa.gov/planetary/apod?api_key=LFIIphvc0g9zoHiTF4bbmcuKW9ff3wXcM7znOCZm")
-            .then(response => response.json())
-            .then(data => nasaDatas(data)) 
-
-        function nasaDatas({hdurl, title, explanation}) {
-            apod.innerHTML = `<img src="${hdurl}">`
-            apodTitle.innerHTML = `
-            <p>NASA API : Astronomy Picture of the Day</p>
-            <p>Titre : ${title}</p>`
-
-            // apod.addEventListener("mouseover", () => {
-            //     apod.innerHTML = `<img src="${hdurl}">` + `<p class="explanation">${explanation}</p>`
-            // })
-
-        }
-
-    </script>
+    <script src="app.js"></script>
 
 </body>
 </html>
